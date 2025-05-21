@@ -8,4 +8,4 @@ program1 1b: ArraList Exercise
 
 1b4_output ->(https://github.com/saniyaVaturi/ADJ_JAVA_ASSIGMENT/blob/main/1b_ArrayList_Exercises.java/1b4.png)
 
-1b5_output ->()
+1b5_output ->(https://github.com/saniyaVaturi/ADJ_JAVA_ASSIGMENT/blob/main/1b_ArrayList_Exercises.java/1b5.png)
