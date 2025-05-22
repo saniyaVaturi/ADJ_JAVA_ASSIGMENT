@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cookie List Management</title>
+    <style>
+        .cookie-table {
+            border-collapse: collapse;
+            width: 60%;
+            margin: 20px 0;
+        }
+        .cookie-table th, .cookie-table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        .cookie-table th {
+            background-color: #f2f2f2;
+        }
+        .form-group {
+            margin: 15px 0;
+        }
+        .auto-refresh {
+            color: #666;
+            font-size: 0.9em;
+            margin-bottom: 10px;
+        }
+    </style>
+    <script>
+        // Auto refresh every 60 seconds
+        setTimeout(function () {
+            window.location.reload();
+        }, 60000);
+
+        // Function to display browser cookies in table
+        function displayCookies() {
+            const cookieTable = document.getElementById("cookieBody");
+            const cookies = document.cookie.split(";");
+
+            if (cookies.length === 1 && cookies[0].trim() === "") {
+                cookieTable.innerHTML = '<tr><td colspan="3" style="text-align:center;">No active cookies</td></tr>';
+                return;
+            }
+
+            cookieTable.innerHTML = "";
+            cookies.forEach(cookie => {
+                const [name, value] = cookie.split("=");
+                const row = `<tr>
+                                <td>${decodeURIComponent(name.trim())}</td>
+                                <td>—</td>
+                                <td>—</td>
+                             </tr>`;
+                cookieTable.innerHTML += row;
+            });
+        }
+
+        window.onload = displayCookies;
+    </script>
+</head>
+<body>
+    <h2>Cookie List Management</h2>
+
+    <!-- Form to set cookies -->
+    <form action="setCookie.jsp" method="post">
+        <h3>Set New Cookie</h3>
+        <table>
+            <tr>
+                <td><label for="cookieName">Cookie Name:</label></td>
+                <td><input type="text" id="cookieName" name="cookieName" required></td>
+            </tr>
+            <tr>
+                <td><label for="domain">Domain:</label></td>
+                <td><input type="text" id="domain" name="domain" value="localhost" required></td>
+            </tr>
+            <tr>
+                <td><label for="maxAge">Max Age (seconds):</label></td>
+                <td><input type="number" id="maxAge" name="maxAge" value="10" required></td>
+            </tr>
+        </table>
+        <br>
+        <input type="submit" value="Add Cookie">
+    </form>
+
+    <hr>
+    <h3>List of Browser Cookies</h3>
+    <p class="auto-refresh">Auto-refreshes every 60 seconds</p>
+
+    <table class="cookie-table">
+        <thead>
+            <tr>
+                <th>Cookie Name</th>
+                <th>Domain</th>
+                <th>Max Age (seconds)</th>
+            </tr>
+        </thead>
+        <tbody id="cookieBody">
+            <tr><td colspan="3" style="text-align:center;">Loading cookies...</td></tr>
+        </tbody>
+    </table>
+</body>
+</html>
