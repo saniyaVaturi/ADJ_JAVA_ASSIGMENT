@@ -1,3 +1,6 @@
+/* 1b3 Write a java program for getting different colors through ArrayList interface and sort them
+using Collections.sort( ArrayListObj)*/
+
 package java_Assignment;
 import java.util.ArrayList;
 import java.util.Collections;
