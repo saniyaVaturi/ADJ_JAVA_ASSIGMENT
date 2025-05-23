@@ -1,4 +1,4 @@
-program1 1c: ArraList Exercise
+program1 1c: LinkedList Exercise
 
 1c1_output ->(https://github.com/saniyaVaturi/ADJ_JAVA_ASSIGMENT/blob/main/1c_linkedList_Exercise/1c1.png)
 
