@@ -1,3 +1,5 @@
+/*Q10. Write a Java Program for Counting the number of words in a string using user defined function
+countWords()*/
 package thirdC;
 
 public class thirdC5_WordCounter {
